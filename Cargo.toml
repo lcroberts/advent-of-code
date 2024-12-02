@@ -7,4 +7,8 @@ edition = "2021"
 name = "day-one"
 path = "src/day-one/main.rs"
 
+[[bin]]
+name = "day-two"
+path = "src/day-two/main.rs"
+
 [dependencies]
