@@ -1,12 +1,33 @@
 use std::{char, fs};
 
 fn main() {
+    let do_str = "do()";
+    let dont_str = "don't()";
+
     let input = fs::read_to_string("src/day-three/input").unwrap();
     let mut total = 0;
     let chars: Vec<char> = input.chars().collect();
     let mut i = 0;
+    let mut mul_enabled = true;
     // 8 is the minimum valid mul substring length
-    while i < (chars.len() - 3) {
+    while i < (chars.len() - 7) {
+        // Check a do
+        let tmp: &String = &chars[i..=(i + do_str.len() - 1)].iter().collect();
+        if tmp.eq(do_str) {
+            i += do_str.len();
+            mul_enabled = true;
+            continue;
+        }
+
+        // Check a dont
+        let tmp: &String = &chars[i..=(i + dont_str.len() - 1)].iter().collect();
+        if tmp.eq(dont_str) {
+            i += dont_str.len();
+            mul_enabled = false;
+            continue;
+        }
+
+        // At this point we try a mult
         let mul: &String = &chars[i..=(i + 2)].iter().collect();
         if !mul.eq("mul") {
             i += 1;
@@ -53,7 +74,9 @@ fn main() {
         i += 1;
 
         // At this point we have a valid mul
-        total += num1.parse::<i32>().unwrap() * num2.parse::<i32>().unwrap();
+        if mul_enabled {
+            total += num1.parse::<i32>().unwrap() * num2.parse::<i32>().unwrap();
+        }
     }
     println!("Total After Muls: {total}");
 }
