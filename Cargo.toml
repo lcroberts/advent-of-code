@@ -15,4 +15,11 @@ name = "day_three"
 [[bin]]
 name = "day_four"
 
+[[bench]]
+name = "day_four"
+harness = false
+
+[dev-dependencies]
+criterion = { version = "0.5", features = ["html_reports"] }
+
 [dependencies]
