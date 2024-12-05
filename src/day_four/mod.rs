@@ -27,12 +27,10 @@ fn check_up(_width: usize, _height: usize, x: usize, y: usize, grid: &[Vec<char>
     if y < 3 {
         return false;
     }
-    let mut tmp = String::from("");
-    tmp.push(grid[y][x]);
-    tmp.push(grid[y - 1][x]);
-    tmp.push(grid[y - 2][x]);
-    tmp.push(grid[y - 3][x]);
-    tmp.eq("XMAS")
+    (grid[y][x] == 'X')
+        && (grid[y - 1][x] == 'M')
+        && (grid[y - 2][x] == 'A')
+        && (grid[y - 3][x] == 'S')
 }
 
 #[inline]
@@ -40,12 +38,11 @@ fn check_down(_width: usize, height: usize, x: usize, y: usize, grid: &[Vec<char
     if y >= height - 3 {
         return false;
     }
-    let mut tmp = String::from("");
-    tmp.push(grid[y][x]);
-    tmp.push(grid[y + 1][x]);
-    tmp.push(grid[y + 2][x]);
-    tmp.push(grid[y + 3][x]);
-    tmp.eq("XMAS")
+
+    (grid[y][x] == 'X')
+        && (grid[y + 1][x] == 'M')
+        && (grid[y + 2][x] == 'A')
+        && (grid[y + 3][x] == 'S')
 }
 
 #[inline]
@@ -53,12 +50,11 @@ fn check_up_right(width: usize, _height: usize, x: usize, y: usize, grid: &[Vec<
     if y < 3 || x >= width - 3 {
         return false;
     }
-    let mut tmp = String::from("");
-    tmp.push(grid[y][x]);
-    tmp.push(grid[y - 1][x + 1]);
-    tmp.push(grid[y - 2][x + 2]);
-    tmp.push(grid[y - 3][x + 3]);
-    tmp.eq("XMAS")
+
+    (grid[y][x] == 'X')
+        && (grid[y - 1][x + 1] == 'M')
+        && (grid[y - 2][x + 2] == 'A')
+        && (grid[y - 3][x + 3] == 'S')
 }
 
 #[inline]
@@ -66,12 +62,11 @@ fn check_up_left(_width: usize, _height: usize, x: usize, y: usize, grid: &[Vec<
     if y < 3 || x < 3 {
         return false;
     }
-    let mut tmp = String::from("");
-    tmp.push(grid[y][x]);
-    tmp.push(grid[y - 1][x - 1]);
-    tmp.push(grid[y - 2][x - 2]);
-    tmp.push(grid[y - 3][x - 3]);
-    tmp.eq("XMAS")
+
+    (grid[y][x] == 'X')
+        && (grid[y - 1][x - 1] == 'M')
+        && (grid[y - 2][x - 2] == 'A')
+        && (grid[y - 3][x - 3] == 'S')
 }
 
 #[inline]
@@ -80,12 +75,10 @@ fn check_down_left(_width: usize, height: usize, x: usize, y: usize, grid: &[Vec
         return false;
     }
 
-    let mut tmp = String::from("");
-    tmp.push(grid[y][x]);
-    tmp.push(grid[y + 1][x - 1]);
-    tmp.push(grid[y + 2][x - 2]);
-    tmp.push(grid[y + 3][x - 3]);
-    tmp.eq("XMAS")
+    (grid[y][x] == 'X')
+        && (grid[y + 1][x - 1] == 'M')
+        && (grid[y + 2][x - 2] == 'A')
+        && (grid[y + 3][x - 3] == 'S')
 }
 
 #[inline]
@@ -94,12 +87,10 @@ fn check_down_right(width: usize, height: usize, x: usize, y: usize, grid: &[Vec
         return false;
     }
 
-    let mut tmp = String::from("");
-    tmp.push(grid[y][x]);
-    tmp.push(grid[y + 1][x + 1]);
-    tmp.push(grid[y + 2][x + 2]);
-    tmp.push(grid[y + 3][x + 3]);
-    tmp.eq("XMAS")
+    (grid[y][x] == 'X')
+        && (grid[y + 1][x + 1] == 'M')
+        && (grid[y + 2][x + 2] == 'A')
+        && (grid[y + 3][x + 3] == 'S')
 }
 
 #[inline]
