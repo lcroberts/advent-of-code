@@ -1,7 +1,7 @@
 use std::fs;
 
-fn main() {
-    let input = fs::read_to_string("src/day-two/input").unwrap();
+pub fn run() {
+    let input = fs::read_to_string("src/day_two/input").unwrap();
     let mut safe_count = 0;
 
     for line in input.split("\n") {

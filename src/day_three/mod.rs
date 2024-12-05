@@ -1,10 +1,10 @@
 use std::{char, fs};
 
-fn main() {
+pub fn run() {
     let do_str = "do()";
     let dont_str = "don't()";
 
-    let input = fs::read_to_string("src/day-three/input").unwrap();
+    let input = fs::read_to_string("src/day_three/input").unwrap();
     let mut total = 0;
     let chars: Vec<char> = input.chars().collect();
     let mut i = 0;

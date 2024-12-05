@@ -1,7 +1,7 @@
 use std::{collections::HashMap, fs, vec};
 
-fn main() {
-    let contents = fs::read_to_string("src/day-one/input").unwrap();
+pub fn run() {
+    let contents = fs::read_to_string("src/day_one/input").unwrap();
     let mut left_nums: Vec<u32> = vec![];
     let mut right_nums: Vec<u32> = vec![];
     let mut right_counts: HashMap<u32, u32> = HashMap::new();

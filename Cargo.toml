@@ -1,22 +1,18 @@
 [package]
-name = "advent-of-code"
+name = "aoc"
 version = "0.1.0"
 edition = "2021"
 
 [[bin]]
-name = "day-one"
-path = "src/day-one/main.rs"
+name = "day_one"
 
 [[bin]]
-name = "day-two"
-path = "src/day-two/main.rs"
+name = "day_two"
 
 [[bin]]
-name = "day-three"
-path = "src/day-three/main.rs"
+name = "day_three"
 
 [[bin]]
-name = "day-four"
-path = "src/day-four/main.rs"
+name = "day_four"
 
 [dependencies]

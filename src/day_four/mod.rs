@@ -118,50 +118,68 @@ fn check_x(width: usize, height: usize, x: usize, y: usize, grid: &[Vec<char>]) 
             || (grid[y + 1][x - 1].eq(&'S') && grid[y - 1][x + 1].eq(&'M')))
 }
 
-fn main() {
-    let input = fs::read("src/day-four/input").unwrap();
+pub fn get_input() -> Vec<Vec<char>> {
+    let input = fs::read("src/day_four/input").unwrap();
     let char_array: Vec<Vec<char>> = input
         .lines()
         .map(|line| line.unwrap().chars().collect())
         .collect();
+    char_array
+}
 
-    let width = char_array[0].len();
-    let height = char_array.len();
+pub fn part_one(width: usize, height: usize, char_array: &[Vec<char>]) -> usize {
     let mut count = 0;
-    let mut count2 = 0;
-
     for y in 0..height {
         for x in 0..width {
-            if check_right(width, height, x, y, &char_array) {
+            if check_right(width, height, x, y, char_array) {
                 count += 1;
             }
-            if check_up_right(width, height, x, y, &char_array) {
+            if check_up_right(width, height, x, y, char_array) {
                 count += 1;
             }
-            if check_up(width, height, x, y, &char_array) {
+            if check_up(width, height, x, y, char_array) {
                 count += 1;
             }
-            if check_up_left(width, height, x, y, &char_array) {
+            if check_up_left(width, height, x, y, char_array) {
                 count += 1;
             }
-            if check_left(width, height, x, y, &char_array) {
+            if check_left(width, height, x, y, char_array) {
                 count += 1;
             }
-            if check_down_left(width, height, x, y, &char_array) {
+            if check_down_left(width, height, x, y, char_array) {
                 count += 1;
             }
-            if check_down(width, height, x, y, &char_array) {
+            if check_down(width, height, x, y, char_array) {
                 count += 1;
             }
-            if check_down_right(width, height, x, y, &char_array) {
+            if check_down_right(width, height, x, y, char_array) {
                 count += 1;
-            }
-            if check_x(width, height, x, y, &char_array) {
-                count2 += 1;
             }
         }
     }
+    count
+}
 
-    println!("Total XMAS count: {count}");
-    println!("Total X-MAS count: {count2}");
+pub fn part_two(width: usize, height: usize, char_array: &[Vec<char>]) -> usize {
+    let mut count = 0;
+    for y in 0..height {
+        for x in 0..width {
+            if check_x(width, height, x, y, char_array) {
+                count += 1;
+            }
+        }
+    }
+    count
+}
+
+pub fn run() {
+    let char_array = get_input();
+    let width = char_array[0].len();
+    let height = char_array.len();
+
+    println!("Total XMAS count: {}", part_one(width, height, &char_array));
+    println!(
+        "Total X-MAS count: {}",
+        part_two(width, height, &char_array)
+    );
 }
