@@ -15,6 +15,9 @@ name = "day_three"
 [[bin]]
 name = "day_four"
 
+[[bin]]
+name = "day_five"
+
 [[bench]]
 name = "day_four"
 harness = false
